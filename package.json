@@ -1,0 +1,25 @@
+{
+  "name": "flisp-assembly-lang",
+  "displayName": "Flisp Assembly Lang",
+  "description": "Syntax highlighting for FLISP Assembly language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "flispass",
+      "aliases": ["FLISP Assembly", "flispass"],
+      "extensions": [".sflisp"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "flispass",
+      "scopeName": "source.flispassembly",
+      "path": "./syntaxes/flispass.tmLanguage.json"
+    }]
+  }
+}
