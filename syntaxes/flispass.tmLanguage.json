@@ -1,35 +1,69 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "FLISP Assembly",
-	"patterns": [
-		{
-			"include": "#symbol"
-		},
-		{
-			"include": "#mnemonic"
-		},
-		{
-			"include": "#operand"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.flispass",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.flispass",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.flispass",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.flispassembly"
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "FLISP Assembly",
+    "patterns": [
+        {
+            "include": "#symbol"
+        },
+        {
+            "include": "#mnemonic"
+        },
+        {
+            "include": "#operand"
+        }
+    ],
+    "repository": {
+        "symbol": {
+            "patterns": [
+                {
+                    "include": "symbol-definition"
+                },
+                {
+                    "include": "symbol-name"
+                }
+            ]
+        },
+        "symbol-definition": {
+            "name": "symbol-definition.flispassembly",
+            "match": "\\b[a-z_][a-z_.0-9$]*\\b:"
+        },
+        "symbol-name": {
+            "name": "symbol-name.flispassembly",
+            "match": "\\b[a-z_][a-z_.0-9$]*\\b"
+        },
+        "mnemonic": {
+            "name": "mnemonic-op-code.flispassembly",
+            "match": "\\b([A-Z]{3} [ACXYS],[ACXYS])|([A-Z]{3,5})\\b"
+        },
+        "operand": {
+            "patterns": [
+                {
+                    "include": "hexadecimal"
+                },
+                {
+                    "include": "decimal"
+                },
+                {
+                    "include": "binary"
+                }
+            ]
+        },
+        "hexadecimal": {
+            "name": "hexadecimal-operand.flispassembly",
+            "match": ""
+        },
+        "decimal": { 
+            "name": "decimal-operand.flispassembly"
+        },
+        "binary": { 
+            "name": "binary-operand.flispassembly"
+        },
+        "comments": {
+            "lineComment": ";"
+        },
+        "indentationRules": {
+            "increaseIndentPattern": "^[^;].*:.*"
+        }
+    },
+    "scopeName": "source.flispassembly"
 }
