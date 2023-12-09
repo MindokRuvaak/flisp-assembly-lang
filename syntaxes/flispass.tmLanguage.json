@@ -25,11 +25,11 @@
         },
         "symbol-definition": {
             "name": "symbol-definition.flispassembly",
-            "match": "\\b[a-z_][a-z_.0-9$]*\\b:"
+            "match": "\\b[a-z_][a-zA-Z_.0-9$]*\\b:"
         },
         "symbol-name": {
             "name": "symbol-name.flispassembly",
-            "match": "\\b[a-z_][a-z_.0-9$]*\\b"
+            "match": "\\b[a-z_][a-zA-Z_.0-9$]*\\b"
         },
         "mnemonic": {
             "name": "mnemonic-op-code.flispassembly",
