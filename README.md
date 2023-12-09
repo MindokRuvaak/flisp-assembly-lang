@@ -1,2 +1,2 @@
-# flisp-assembly-lang-
+# flisp-assembly-lang
 FLISP Assembly language syntax highlighting
