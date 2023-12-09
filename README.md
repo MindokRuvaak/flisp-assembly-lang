@@ -1,3 +1,7 @@
+
+# flisp-assembly-lang
+FLISP Assembly language syntax highlighting
+
 # flisp-assembly-lang README
 
 This is the README for your extension "flisp-assembly-lang". After writing up a brief description, we recommend including the following sections.
@@ -63,5 +67,3 @@ You can author your README using Visual Studio Code. Here are some useful editor
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
-# flisp-assembly-lang
-FLISP Assembly language syntax highlighting
