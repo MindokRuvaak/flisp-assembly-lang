@@ -1,5 +1,4 @@
 {
-    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name": "FLISP Assembly",
     "patterns": [
         {
@@ -25,15 +24,15 @@
         },
         "symbol-definition": {
             "name": "symbol-definition.flispassembly",
-            "match": "\\b[a-z_][a-zA-Z_.0-9$]*\\b:"
+            "match": "\\b^[a-z_][a-zA-Z_.0-9$]*\\b:"
         },
         "symbol-name": {
             "name": "symbol-name.flispassembly",
-            "match": "\\b[a-z_][a-zA-Z_.0-9$]*\\b"
+            "match": "\\b[a-z_][a-zA-Z_.0-9$]*(?=\\s*?$)"
         },
         "mnemonic": {
             "name": "mnemonic-op-code.flispassembly",
-            "match": "\\b([A-Z]{3} [ACXYS],[ACXYS])|([A-Z]{3,5})\\b"
+            "match": "\\b[A-Z]{3,5}\\b"
         },
         "operand": {
             "patterns": [
@@ -45,6 +44,9 @@
                 },
                 {
                     "include": "binary"
+                },
+                {
+                    "include": "registry"
                 }
             ]
         },
@@ -52,11 +54,17 @@
             "name": "hexadecimal-operand.flispassembly",
             "match": ""
         },
-        "decimal": { 
-            "name": "decimal-operand.flispassembly"
+        "decimal": {
+            "name": "decimal-operand.flispassembly",
+            "match": ""
         },
-        "binary": { 
-            "name": "binary-operand.flispassembly"
+        "binary": {
+            "name": "binary-operand.flispassembly",
+            "match": ""
+        },
+        "registry": {
+            "name": "registry-operand.flispassembly",
+            "match": ""
         },
         "comments": {
             "lineComment": ";"

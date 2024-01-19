@@ -2,7 +2,8 @@
   "name": "flisp-assembly-lang",
   "displayName": "Flisp Assembly Lang",
   "description": "Syntax highlighting for FLISP Assembly language",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "repository": "https://github.com/MindokRuvaak/flisp-assembly-lang",
   "engines": {
     "vscode": "^1.85.0"
   },
