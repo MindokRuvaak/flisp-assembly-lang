@@ -19,7 +19,7 @@ operand - still working on it, this has alot
 operand types: 
 immediate data - 100%
 absolute adress - is  not detected, don't know why, figure out later
-PC relative - 100%
+PC relative - untested,
 indexed - TextMate patterns declared no matching yet, alot of variations here
 
 
