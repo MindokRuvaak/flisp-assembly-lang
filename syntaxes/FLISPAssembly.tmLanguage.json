@@ -1,0 +1,163 @@
+{
+    "name": "FLISPAssembly",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#instruction"
+        },
+        {
+            "include": "#symbol"
+        },
+        {
+            "include":"#numeric"
+        },
+        {
+            "include": "#operand"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "name": "lineComment.FLISPAssembly",
+            "match": "\\;.*"
+        },
+        "instruction": {
+            "name": "instruction.FLISPAssembly",
+            "match": "(?<!^)\\b[A-Z]{3,5}\\b"
+        },
+        "symbol": {
+            "name": "symbol.FLISPAssembly", 
+            "patterns": [
+                {
+                    "include": "#definition"
+                },
+                {
+                    "include": "#symbolName"
+                }
+            ]
+        },
+        "definition": {
+            "name": "definition.symbol.FLISPAssembly",
+            "match": "\\b^[a-z_][a-zA-Z_.0-9$]*\\b:"
+        },
+        "symbolName": {
+            "name": "symbolName.symbol.FLISPAssembly",
+            "match": "(?<!^)\\b[a-z_][a-zA-Z_.0-9$]*(?=\\s*?$)" 
+        },
+        "numeric": {
+            "name": "numeric.FLISPAssembly",
+            "patterns": [
+                {
+                    "include": "#hexadecimal"
+                },
+                {
+                    "include": "#decimal"
+                },
+                {
+                    "include": "#binary"
+                }
+            ]
+        },
+        "hexadecimal": {
+            "name": "hexadecimal.numeric.FLISPAssembly",
+            "match" : "(?<!^)\\$[A-F0-9]{1,2}\\b"
+        },
+        "decimal": {
+            "name": "decimal.numeric.FLISPAssembly",
+            "match": "(?<!-|^)\\b((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([1-9][0-9])|([0-9]))\\b"
+        },
+        "binary": {
+            "name": "binary.numeric.FLISPAssembly",
+            "match": "(?<!^)\\%[01]{1,8}\\b"
+        },
+        "operand": {
+            "name": "operand.FLISPAssembly",
+            "patterns": [
+                {
+                    "include": "#immediateData"
+                },
+                {
+                    "include": "#absoluteAdress"
+                },
+                {
+                    "include": "#pcRelative"
+                },
+                {
+                    "include": "#indexed"
+                }
+            ]
+        },
+        "immediateData": {
+            "name": "imData.operand.FLISPAssembly",
+            "begin": "\\#",
+            "end": "\\s",
+            "patterns": [
+                {
+                    "include": "#hexadecimal"
+                },
+                {
+                    "include": "#numeric"
+                },
+                {
+                    "include": "#binary"
+                },
+                {
+                    "include": "#symbolName"
+                }
+            ]
+        },
+        "absoluteAdress":
+        {
+            "name": "abAdress.operand.FLISPAssembly",
+            "patterns": [
+                {
+                    "include": "#hexadecimal"
+                },
+                {
+                    "include": "#symbolName"
+                }
+            ]
+        },
+        "pcRelative": 
+        {
+            "name": "pcRelative.operand.FLISPAssembly",
+            "patterns": [
+                {
+                    "include": "#hexadecimal"
+                },
+                {
+                    "include": "#symbolName"
+                }
+            ]
+        },
+        "indexed":
+        {
+            "name": "indexed.operand.FLISPAssembly",
+            "patterns": [
+                {
+                    "include": "#nSP"
+                },
+                {
+                    "include": "#nR"
+                },
+                {
+                    "include": "#AR"
+                },
+                {
+                    "include": "#+R"
+                },
+                {
+                    "include": "#-R"
+                },
+                {
+                    "include": "#R+"
+                },
+                {
+                    "include": "#R-"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.FLISPAssembly"
+}
