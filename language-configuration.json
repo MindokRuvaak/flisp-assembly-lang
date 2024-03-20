@@ -3,6 +3,6 @@
         "lineComment": ";"
     },
     "indentationRules": {
-        "increaseIndentPattern": "^[^;].*:.*"
+        "increaseIndentPattern": "(^[^;].*:.*)|(^;.*)"
     }
 }

@@ -17,9 +17,13 @@ Not a strict requirement, but Digiflisp is need to convert
 
 ## Known Issues
 
-Nothing works yet
+- Nothing works yet
+- absolute adress is not detected
 
 ## Release Notes
+### 0.0.3
+Operand detection, I don't know how to implement it fuully and functionally whilst following it's previous design. Trying out a new approach, backup in file labeled OLD-
+
 ### 0.0.2 
 Actually started reading the *vsc-extension-quickstart.md* file. 
 Added comment support, only ; as line comment start, block comment not supported.
